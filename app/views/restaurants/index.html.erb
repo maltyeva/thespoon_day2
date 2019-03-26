@@ -1,0 +1,12 @@
+<h1>My Restaurants</h1>
+<% @restaurants.each do |r| %>
+  <h3><%= link_to r.name, restaurant_path(r) %></h3>
+  <!-- link_to "link" path -->
+  <h5><%= r.address %></h5>
+  <p><% r.rating.times do  %>
+      🌯
+    <% end %>
+  </p>
+  <%= link_to "💩", restaurant_path(r), method: :delete, data: { confirm: "Are You sure? "}  %>
+<% end %>
+<%= link_to "new restaurant",  new_restaurant_path%>
